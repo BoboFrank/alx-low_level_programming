@@ -1,20 +1,22 @@
 #include <stdlib.h>
-#include <stdio.h>
+#include "main.h"
+
 /**
  * malloc_checked - allocates memory using malloc
- * @b: size to be allocated
- * Return: pointer to allocated memory or exit with 98
- **/
+ * @b: unsigned integer
+ * Return: ptr
+ */
 void *malloc_checked(unsigned int b)
 {
-	void *pointer;
-
-	pointer = malloc(b);
-
-	if (pointer == NULL)
+	/*declare a pointer to be used*/
+	int *ptr;
+	/*create memory spaces in heap*/
+	ptr = malloc(b);
+	/*if malloc doesn't create memory*/
+	if (ptr == NULL)
 	{
-		free(pointer);
-		exit(98);
+		free(ptr);
+		exit(98);/*i.e: end the program with status value 98*/
 	}
-	return (pointer);
+	return (ptr);/*ptr is the void pointer*/
 }
